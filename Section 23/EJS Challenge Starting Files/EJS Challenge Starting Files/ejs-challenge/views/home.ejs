@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs') %>
+    <h1>Hello</h1>
+    <p>
+        <%=homeStartingContent%>
+    </p>
+    <form action="/" method="post">
+        <% for(let i=0; i < listPosts.length; i++){ %>
+            <h1>
+                <%=listPosts[i].title%>
+            </h1>
+            <p>
+                <%=listPosts[i].post.slice(0, 100);%>...<button type="submit" class="btn btn-link"
+                        value=<%=listPosts[i].title%> name="title">Read More</button>
+            </p>
+            <% } %>
+    </form>
+
+    <%- include('partials/footer.ejs') %>

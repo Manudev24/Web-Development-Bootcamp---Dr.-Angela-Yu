@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1>
+            <%=listTitle%>
+        </h1>
+    </div>
+
+    <div class="box">
+        <% for(let i=0; i<itemList.length; i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%=itemList[i]%>
+                </p>
+            </div>
+
+
+            <%} %>
+
+                <form class="item" action="/" method="post" autocomplete="off">
+                    <input type="text" name="item" placeholder="New Item">
+                    <button type="submit" name="kindOfButton" value=<%=listTitle%>>+</button>
+                </form>
+    </div>
+
+</body>
+
+</html>
