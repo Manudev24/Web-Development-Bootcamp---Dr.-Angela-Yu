@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb://localhost:27017/todolistDB", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://admin-victor:admin@cluster0.an0nvbl.mongodb.net/todolistDB", { useNewUrlParser: true });
 
 
 const taskShema = new mongoose.Schema({
@@ -146,7 +147,9 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
-  console.log("http://localhost:3000/");
-});
+// app.listen(3000, function () {
+//   console.log("Server started on port 3000");
+//   console.log("http://localhost:3000/");
+// });
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
